@@ -38,7 +38,8 @@ if (localStorage.tasks) {
 var sumpit = document.getElementById("input-sumbit-task");
 
 sumpit.onclick = () => {
-  var text = document.getElementById("input-text-task").value;
+  var text_ele = document.getElementById("input-text-task");
+  var text = text_ele.value;
   if (text !== "") {
     var Id = Math.round(Math.random() * 100000000000);
     var value = {
@@ -55,5 +56,6 @@ sumpit.onclick = () => {
       localStorage.tasks = JSON.stringify(contener);
     }
     createTask(value.id, value.Text);
+    text_ele.value = "";
   }
 };
